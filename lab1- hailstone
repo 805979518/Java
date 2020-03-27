@@ -1,0 +1,91 @@
+import java.util.Arrays;
+import java.util.List;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class HailstoneTest {
+	
+    @Test
+    public void testHailstone() {
+        List<Integer> expected = Arrays.asList(5, 16, 8, 4, 2, 1);
+        List<Integer> actual = Hailstone.hailstone(5);
+        assertEquals(expected, actual);
+		
+		
+    }
+
+    @Test
+    public void testMaxHailstone() {
+        int expectedMax = 16;
+        assertEquals(expectedMax, Hailstone.maxHailstone(Hailstone.hailstone(5)));
+		
+		
+    }
+
+}
+import java.util.ArrayList;
+import java.util.List;
+
+public class Hailstone {
+
+  
+  
+  
+  
+  
+  
+  
+  
+  /**
+     * Compute a hailstone sequence.
+     * For example, hailstone(5) = [5 16 8 4 2 1].
+	 * @param n starting number for sequence. Assumes n > 0.
+     * @return hailstone sequence starting at n and ending with 1.
+     */
+
+    public static List<Integer> hailstone(int n) {
+        List<Integer> list = new ArrayList<Integer>();
+
+        while (n != 1) {
+            list.add(n);
+            if (n % 2 == 0) {
+                n = n / 2;
+            }
+			else {
+                n = 3 * n + 1;
+            }
+        }
+        list.add(n); // adding the final element: 1
+        return list;
+    }
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ /**
+     * Find the largest element in a list.
+     * @param list is a list of elements.
+     * Requires list to be nonempty
+     * and all elements to be nonnegative.
+     * @return the largest element in list
+     */
+    public static int maxHailstone(List<Integer> list) {
+        int max = 0;
+        for (int x : list) {
+            if (x > max) {
+                list.size();
+                max = x;
+
+            }
+        }
+		
+		return max;
+    }
+
+}
